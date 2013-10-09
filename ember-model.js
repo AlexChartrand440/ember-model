@@ -246,7 +246,9 @@ Ember.ManyArray = Ember.RecordArray.extend({
         content = get(this, 'content'),
         contentLength = get(content, 'length');
 
-    if (originalContentLength !== contentLength) { return true; }
+    if ((originalContent === null && content !== null) || originalContentLength !== contentLength) {
+        return true;
+    }
 
     var isDirty = false;
 
